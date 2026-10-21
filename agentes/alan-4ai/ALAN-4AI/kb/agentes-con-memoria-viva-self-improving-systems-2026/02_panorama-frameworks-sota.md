@@ -1,0 +1,29 @@
+ ## 1. Dominio SOTA en Benchmarks de Memoria
+
+AgentFly (2025) ocupa el top-1 en GAIA validation con 87.88% Pass@3 mediante un Memory-augmented Markov Decision Process (M-MDP) que almacena experiencias pasadas en memoria episódica sin ejecutar fine-tuning sobre los pesos del LLM subyacente [F1]. La memoria case-based episódica de AgentFly añade entre 4.7% y 9.6% de puntos absolutos en tareas out-of-distribution comparado contra agentes sin memoria, demostrando que la retención de experiencias mejora la generalización más allá de la distribución de entrenamiento [F1]. O-Mem (2025) supera a LangMem en el benchmark LoCoMo por +3% y a A-Mem en PERSONAMEM por +3.5%, posicionándose como SOTA en memoria personalizada gracias a un esquema de perfilado activo del usuario y recuperación jerárquica que fusiona atributos de persona con contexto temático [F4].
+
+Si te llevas UNA cosa: AgentFly y O-Mem demuestran que la memoria episódica y el perfilado jerárquico sin modificar pesos del modelo son las rutas más efectivas para escalar generalización y personalización en benchmarks públicos.
+
+## 2. Taxonomía de Arquitecturas de Memoria Viva
+
+Mem0 (Abril 2026) implementa una arquitectura de tres capas diferenciadas: User Memory para preferencias long-term, Session Memory para contexto conversacional transitorio, y Agent Memory para estado del sistema y workflow, operando como un sistema de memoria híbrida orientado a agentes conversacionales [F2]. La recuperación en Mem0 es multi-señal y ejecuta en paralelo búsqueda semántica, BM25 keyword matching y entity matching, puntuando y fusionando resultados para maximizar relevancia [F2]. El survey de Lifelong Learning de Zheng (2024) sintetiza más de 120 papers y bifurca las estrategias en Internal Knowledge —que modifica pesos vía continual pretraining o fine-tuning— y External Knowledge —que preserva los pesos originales mediante retrieval-based o tool-based augmentation— [F34]. Para arquitecturas de producción tipo Smart4AI, el enfoque de External Knowledge es preferible pues elimina costos de fine-tuning, permite rollback inmediato de cambios en memoria y anula el riesgo de catastrophic forgetting sobre el modelo base [F34].
+
+Si te llevas UNA cosa: Diseñar con External Knowledge sobre tres capas (user, session, agent) y recuperación multi-señal paralela minimiza costos operativos y elimina el riesgo de degradación del modelo base.
+
+## 3. Frameworks Open Source para Agentes Stateful
+
+Letta, anteriormente MemGPT, es el framework open source más maduro para agentes stateful con memoria persistente, implementando memory blocks que separan explícitamente human context y persona context, con soporte multi-LLM y una comunidad activa de más de 100 contribuidores [F5]. La instalación de Letta está disponible vía `npm install -g @letta-ai/letta-code`, facilitando su integración en pipelines de despliegue existentes [F5]. Cognee diferencia su stack combinando embeddings vectoriales, grafos de conocimiento (KG) y principios de ciencia cognitiva, exponiendo cuatro operaciones core —remember, recall, forget, improve— que abstraen el ciclo de vida completo de la información memorizada [F6]. Cognee soporta despliegue en múltiples infraestructuras: Cloud propio, Modal, Railway, Fly.io, Render y Daytona, ofreciendo flexibilidad de hosting sin vendor lock-in [F6].
+
+Si te llevas UNA cosa: Letta entrega statefulness probado en comunidad y Cognee aporta un modelo operativo cognitivo con despliegue multi-plataforma; usarlos en conjunto cubre persistencia y ciclo de vida de memoria.
+
+## 4. Auto-Mejora y Evidencia de Producción
+
+Live-Evo (2026) representa el case study más riguroso de memoria auto-mejorada en producción, ejecutando online learning sobre un stream continuo de datos durante 10 semanas y reportando mejoras de +20.8% en Brier score y +12.9% en retornos de mercado dentro de Prophet Arena [F18]. Los modelos entrenados en Live-Evo transfieren ganancias consistentes a benchmarks de deep-research, demostrando que la mejora continua de memoria en dominio financiero generaliza a tareas de investigación profunda [F18]. Huxley-Gödel Machine (HGM, 2025) es un agente de coding auto-mejorado que alcanza performance a nivel humano en SWE-bench Verified, introduciendo la métrica CMP (Clade Metaproductivity) que agrega la performance de los descendientes del agente como predictor de potencial de self-improvement [F33]. CMP resulta más predictivo del techo de mejora a largo plazo que la performance inmediata del agente padre, porque captura la capacidad reproductiva de generar agentes hijos superiores [F33].
+
+Si te llevas UNA cosa: En producción, la memoria que mejora vía online learning (Live-Evo) y la métrica de productividad de clonación (CMP en HGM) son los dos indicadores clave para escalar agentes auto-mejorados más allá del benchmark inicial.
+
+## Si te llevas UNA cosa
+
+El panorama SOTA de 2026 confirma que la memoria efectiva para agentes se construye sobre External Knowledge sin modificar pesos del LLM, combinando recuperación jerárquica multi-señal, tres capas de persistencia (user, session, agent) y ciclos de auto-mejora medidos por métricas de descendencia (CMP) y rendimiento en streams continuos (Live-Evo). Los frameworks maduros (Letta, Cognee, Mem0) ya proveen los bloques de construcción; el diferenciador está en orquestar la memoria como un sistema de aprendizaje lifelong externo al modelo, no como un adiestramiento continuo del mismo.
+
+Si te llevas UNA cosa: La memoria del agente debe vivir fuera del modelo, recuperarse por jerarquías multi-señal y mejorarse midiendo la productividad de sus descendientes, no solo su acierto inmediato.

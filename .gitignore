@@ -1,0 +1,17 @@
+# Claves y secretos: nunca entran al repositorio
+.env
+.env.*
+!.env.example
+!**/.env.local.example
+
+# Archivos del sistema y temporales
+.DS_Store
+Thumbs.db
+desktop.ini
+__pycache__/
+*.pyc
+*.tmp
+*.bak*
+
+# Paquetes generados (empaquetar.py deja el ZIP fuera del repo, pero por si acaso)
+*.zip

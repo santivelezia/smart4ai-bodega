@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "tema": "Cómo construir un meta-agente de clase mundial · agent-builders + evaluación + elicitación 2026",
+  "tema_slug": "meta-agente-clase-mundial-alan-2026",
+  "rol_en_alan": "E",
+  "estado": "INVESTIGACION_LISTA",
+  "fecha_creacion": "2026-05-29",
+  "idioma": "es",
+  "cobertura": "arquitectura de meta-agentes · pipeline robustness & lifecycle · eval frameworks/CICD · LLM-as-judge · elicitación/especificación · anti-patterns y failure modes"
+}

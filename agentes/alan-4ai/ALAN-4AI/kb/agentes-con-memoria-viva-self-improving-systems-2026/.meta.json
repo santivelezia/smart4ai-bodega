@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "tema": "Agentes con memoria viva · self-improving systems 2026",
+  "tema_slug": "agentes-con-memoria-viva-self-improving-systems-2026",
+  "rol_en_alan": "D",
+  "estado": "INVESTIGACION_LISTA",
+  "fecha_creacion": "2026-05-29",
+  "idioma": "es",
+  "cobertura": "memoria jerárquica · mecanismos de aprendizaje continuo · gobernanza y drift · anti-patterns de memoria · Patrón 5 de memoria por tier"
+}

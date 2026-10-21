@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "tema": "Cómo construir agentes con Claude al máximo nivel · metodología completa 2026",
+  "tema_slug": "como-construir-agentes-claude-2026",
+  "rol_en_alan": "base",
+  "estado": "INVESTIGACION_LISTA",
+  "fecha_creacion": "2026-05-19",
+  "idioma": "es",
+  "cobertura": "arquitectura de agentes · Claude Code · prompt/system design · Agent SDK · MCPs y skills · memoria y context engineering · calidad/costos/ops · anti-patterns y SOTA"
+}

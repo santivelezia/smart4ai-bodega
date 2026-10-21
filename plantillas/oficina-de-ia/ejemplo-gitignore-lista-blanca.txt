@@ -1,0 +1,28 @@
+# Ejemplo de .gitignore en lista blanca (Guía 2 de la oficina de IA · Smart4AI · CC BY-NC 4.0)
+# Es el que se usó en la prueba real; el tuyo puede variar según lo que acuerdes con Claude.
+# Para usarlo: copia el contenido en un archivo llamado .gitignore en la raíz de tu carpeta «Mi oficina de IA».
+# Cómo se lee: /* = «nada de lo que está en la carpeta»; cada línea con ! abre una excepción («esto sí»);
+# las líneas del final ganan siempre, aunque el archivo esté dentro de una carpeta permitida.
+
+# Lista blanca de mi oficina de IA: por defecto NO sube nada.
+/*
+!/.gitignore
+!/CLAUDE.md
+!/REGLAS_DE_LA_CASA.md
+!/MI_OFICINA_ESTADO.md
+!/LECCIONES.md
+!/ayudantes/
+!/dias/
+!/.claude/
+/.claude/*
+!/.claude/agents/
+
+# Nunca suben, aunque estén dentro de una carpeta permitida
+.env
+.env.*
+*clave*
+*secret*
+*token*
+*.mp4
+*.mov
+settings.local.json
